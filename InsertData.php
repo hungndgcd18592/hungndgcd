@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-<title>Insert data to PostgreSQL with php - creating a simple web application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style>
-li {
-list-style: none;
-}
-</style>
-</head>
+<head>
+	<title>Insert product</title>
+	<link rel="stylesheet" type="text/css" href="Login.css">
 <body>
-<h1>INSERT DATA TO DATABASE</h1>
-<h2>Enter data into table</h2>
-<ul>
-    <form name="InsertData" action="InsertData.php" method="POST" >
-<li>ID:</li><li><input type="text" name="id" /></li>
-<li>Name:</li><li><input type="text" name="name" /></li>
-<li>Price:</li><li><input type="text" name="price" /></li>
-<li><input type="submit" name="form_click" value="Submit" /></li>
-</form>
-</ul>
+    <form class="box" action="InsertData.php" method="post">
+		<h1>Insert Product</h1>
+		<input class="signup" type="text" name="productid" placeholder="Product id">
+		<input class="signup" type="text" name="productname" placeholder="Product name">
+		<input class="signup" type="text" name="price" placeholder="Price">
+		<input class="signup" type="submit" name="" value="Submit">
+	        <div class= "home">    <li> <a href="index.php" >Home</a></li> </div>
+	
+    </div>
+	</form> 
+	
+
+</body>
+</html>
+
 
 <?php
 
@@ -30,9 +29,12 @@ if (empty(getenv("DATABASE_URL"))){
      
    $db = parse_url(getenv("DATABASE_URL"));
    $pdo = new PDO("pgsql:" . sprintf(
-         "host=
-ec2-52-200-119-0.compute-1.amazonaws.com
-;port=5432;user=bsoftcnuneszmg;password=ffbf603a129cbdd6304c87386df81eb4272cb0c072f9428830572eef6df2a663;dbname=d8ialp45a8u6p6",
+               "host=
+
+ec2-34-197-188-147.compute-1.amazonaws.com
+
+
+;port=5432;user=ftbrqmbjzdokhz;password=5d4ba19be2d4ae184872f97936af42e95be0230e2211ea5a7de7104fa7417cca;dbname=d207o5vn0kgdns",
         $db["host"],
         $db["port"],
         $db["user"],
@@ -45,12 +47,13 @@ if($pdo === false){
      echo "ERROR: Could not connect Database";
 }
 
-$sql = "INSERT INTO product(id, name, price)"
-        . " VALUES('$_POST[id]','$_POST[name]','$_POST[price]')";
+
+$sql = "INSERT INTO product(productid, productname,price)"
+        . " VALUES('$_POST[productid]','$_POST[productname]','$_POST[price]')";
 $stmt = $pdo->prepare($sql);
 //$stmt->execute();
- if (is_null($_POST[id])) {
-   echo "ID must be not null";
+ if (is_null($_POST[productid])) {
+   echo "productid must be not null";
  }
  else
  {
@@ -60,7 +63,6 @@ $stmt = $pdo->prepare($sql);
         echo "Error inserting record: ";
     }
  }
-               
 ?>
 </body>
 </html>
