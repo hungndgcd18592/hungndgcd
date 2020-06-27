@@ -11,22 +11,15 @@
 		<input class="signup" type="text" name="price" placeholder="Price">
 		<input class="signup" type="submit" name="" value="Submit">
 	        <div class= "home">    <a href="index.php" >Home</a> </div>
-	
     </div>
 	</form> 
-	
-
 </body>
 </html>
-
-
 <?php
-
 if (empty(getenv("DATABASE_URL"))){
     echo '<p>The DB does not exist</p>';
     $pdo = new PDO('pgsql:host=localhost;port=5432;dbname=mydb', 'postgres', '123456');
 }  else {
-     
    $db = parse_url(getenv("DATABASE_URL"));
    $pdo = new PDO("pgsql:" . sprintf(
              "host=
@@ -40,12 +33,9 @@ ec2-34-206-31-217.compute-1.amazonaws.com
         ltrim($db["path"], "/")
    ));
 }  
-
 if($pdo === false){
      echo "ERROR: Could not connect Database";
 }
-
-
 $sql = "INSERT INTO product(id, name,price)"
         . " VALUES('$_POST[id]','$_POST[name]','$_POST[price]')";
 $stmt = $pdo->prepare($sql);
