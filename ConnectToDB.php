@@ -46,9 +46,9 @@ echo '<p>product information:</p>';
 <table class="table table-bordered table-condensed">
     <thead>
       <tr>
-        <th>PRODUCT ID</th>
-        <th>PRODUCT NAME</th>
-        <th>PRICE</th>
+        <th>Product ID</th>
+        <th>Product name</th>
+        <th>Price</th>
       </tr>
     </thead>
     <tbody>
