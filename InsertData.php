@@ -30,11 +30,8 @@ if (empty(getenv("DATABASE_URL"))){
    $db = parse_url(getenv("DATABASE_URL"));
    $pdo = new PDO("pgsql:" . sprintf(
                "host=
-
-ec2-34-197-188-147.compute-1.amazonaws.com
-
-
-;port=5432;user=ftbrqmbjzdokhz;password=5d4ba19be2d4ae184872f97936af42e95be0230e2211ea5a7de7104fa7417cca;dbname=d207o5vn0kgdns",
+ec2-52-202-146-43.compute-1.amazonaws.com
+;port=5432;user=lnmlwwbswnzsfa;password=cb977e5e295f4561e6e00a6bfe3cb3f1239bd0a6f672d8cde0d2527d0f465bbd;dbname=d5jt6vji9s8ql3",
         $db["host"],
         $db["port"],
         $db["user"],
@@ -48,7 +45,7 @@ if($pdo === false){
 }
 
 
-$sql = "INSERT INTO product(productid, productname,price)"
+$sql = "INSERT INTO product(id, name,price)"
         . " VALUES('$_POST[id]','$_POST[name]','$_POST[price]')";
 $stmt = $pdo->prepare($sql);
 //$stmt->execute();
