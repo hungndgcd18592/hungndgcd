@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Insert product</title>
-	<link rel="stylesheet" type="text/css" href="Login.css">
+	<link rel="stylesheet" type="text/css" href="insert.css">
 <body>
     <form class="box" action="InsertData.php" method="post">
 		<h1>Insert Product</h1>
@@ -49,10 +49,10 @@ if($pdo === false){
 
 
 $sql = "INSERT INTO product(productid, productname,price)"
-        . " VALUES('$_POST[productid]','$_POST[productname]','$_POST[price]')";
+        . " VALUES('$_POST[id]','$_POST[name]','$_POST[price]')";
 $stmt = $pdo->prepare($sql);
 //$stmt->execute();
- if (is_null($_POST[productid])) {
+ if (is_null($_POST[id])) {
    echo "productid must be not null";
  }
  else
