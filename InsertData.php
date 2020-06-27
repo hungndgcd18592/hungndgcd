@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Insert product</title>
-	<link rel="stylesheet" type="text/css" href="Login.css">
+	<link rel="stylesheet" type="text/css" href="css/insert.css">
 <body>
     <form class="box" action="InsertData.php" method="post">
 		<h1>Insert Product</h1>
